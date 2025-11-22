@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../pagecss/signup.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+
+
 
 
 const Signup = () => {
@@ -14,9 +18,11 @@ const Signup = () => {
 
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
+    const [loading, setloading] = useState(false)
 
     const registration = (e) => {
         e.preventDefault();
+        setloading(true)
 
         axios.post("http://127.0.0.1:8000/api/signup/", user)
             .then(response => {
@@ -49,7 +55,9 @@ const Signup = () => {
                     setErrorMessage("Failed to connect to API.");
                 }
 
-            });
+            }).finally(() => {
+                setloading(false)
+            })
     };
 
     return (
@@ -79,7 +87,10 @@ const Signup = () => {
                         required
                     /> <br />
 
-                    <button className='signupbtn' type='submit'>Signup</button>
+                    {loading ? (<button className='signupbtn' type='submit'> <FontAwesomeIcon icon={faSpinner} spin /> loading</button>
+                    ) : <button className='signupbtn' type='submit'>Signup</button>
+                    }
+
                 </form>
                 <div className='signuperror'>
                     {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}

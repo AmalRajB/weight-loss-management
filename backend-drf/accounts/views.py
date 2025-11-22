@@ -149,51 +149,14 @@ def delete_weight(request, pk):
 #       WEIGHT LOSS BETWEEN TWO DATES API
 # ============================================
 
-# @api_view(["GET"])
-# @permission_classes([IsAuthenticated])
-# def weight_loss_between_dates(request):
-
-#     start_date = request.GET.get('start')
-#     end_date = request.GET.get('end')
-
-#     if not start_date or not end_date:
-#         return Response(
-#             {"error": "Please provide 'start' and 'end' date in YYYY-MM-DD format"},
-#             status=HTTP_400_BAD_REQUEST
-#         )
-
-#     # Fetch entries
-#     entries = WeightEntry.objects.filter(
-#         user=request.user,
-#         date__range=[start_date, end_date]
-#     ).order_by("date")
-
-#     if not entries.exists():
-#         return Response(
-#             {"error": "No weight entries found between these dates"},
-#             status=HTTP_404_NOT_FOUND
-#         )
-
-#     start_weight = entries.first().weight
-#     end_weight = entries.last().weight
-
-#     weight_loss = start_weight - end_weight
-
-#     return Response({
-#         "start_date": start_date,
-#         "end_date": end_date,
-#         "start_weight": start_weight,
-#         "end_weight": end_weight,
-#         "weight_loss": weight_loss
-#     }, status=HTTP_200_OK)
 
 
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
+# from rest_framework.decorators import api_view, permission_classes
+# from rest_framework.permissions import IsAuthenticated
+# from rest_framework.response import Response
+# from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
 
-from .models import WeightEntry
+# from .models import WeightEntry
 
 
 @api_view(["POST"])

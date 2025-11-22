@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { setUser } from "../../store/authslice";
 import '../pagecss/login.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 
 const Login = () => {
@@ -16,9 +18,11 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [loading, setloading] = useState(false)
 
   const handleClick = (e) => {
     e.preventDefault();
+    setloading(true)
 
     axios.post("http://127.0.0.1:8000/api/login/", info)
       .then(response => {
@@ -57,6 +61,8 @@ const Login = () => {
           setErrorMessage("Failed to connect to API.");
         }
 
+      }).finally(() => {
+        setloading(false);
       });
   };
 
@@ -80,12 +86,13 @@ const Login = () => {
             onChange={(e) => setInfo({ ...info, password: e.target.value })}
             required
           /> <br />
-
-          <button className='loginbtn' type='submit'>Login</button>
+          {loading ? (<button className='loginbtn' type='submit' disabled > <FontAwesomeIcon icon={faSpinner} spin /> loading</button>
+          ) : <button className='loginbtn' type='submit'>Login</button>
+          }
         </form>
-                  <div className='loginerror'>
-            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-          </div>
+        <div className='loginerror'>
+          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+        </div>
 
 
 
