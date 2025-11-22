@@ -1,0 +1,64 @@
+/* Main container */
+.addingbody {
+  width: 600px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  background: #f8f9fa;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(87, 86, 86, 0.4); /* horizontal, vertical, blur, color */
+  border-radius: 10px; /* optional for nicer look */
+  margin-left: 28%;
+  margin-top: 50px;
+}
+
+/* Title */
+.addweighth1 {
+    text-align: center;
+    text-transform:capitalize ;
+    margin-bottom: 10px;
+
+}
+
+/* Input field */
+.addingbody input {
+  width: 280px;
+  padding: 12px 14px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s ease;
+  margin-left: 130px;
+}
+
+.addingbody input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+}
+
+/* Submit Button */
+.addbutton {
+  margin-top: 50px;
+  width: 100px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #100466;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-left: 210px;
+}
+
+.addbutton:hover {
+  background-color: #4036d7;
+}
+
+/* Error message */
+.addingbody p {
+  margin-bottom: 30px;
+  font-size: 14px;
+  margin-left: 130px;
+}
