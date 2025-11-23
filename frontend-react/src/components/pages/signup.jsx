@@ -105,35 +105,3 @@ const Signup = () => {
 
 export default Signup;
 
-//     <>
-//       <div className='container' >
-
-//         <h1 className='loginh1'>login to the site</h1>
-
-//         <form onSubmit={handleClick}>
-//           <input className='logininput'
-//             type='text'
-//             placeholder='Username'
-//             onChange={(e) => setInfo({ ...info, username: e.target.value })}
-//             required
-//           /> <br />
-//           <input
-//             type='password'
-//             className='logininput'
-//             placeholder='Password'
-//             onChange={(e) => setInfo({ ...info, password: e.target.value })}
-//             required
-//           /> <br />
-
-//           <button className='loginbtn' type='submit'>Login</button>
-//         </form>
-//                   <div className='loginerror'>
-//             {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-//           </div>
-
-
-
-//       </div>
-//     </>
-//   );
-// };

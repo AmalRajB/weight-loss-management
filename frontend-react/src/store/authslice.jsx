@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Load user from localStorage when app starts
 const savedUser = JSON.parse(localStorage.getItem("user"));
 
 export const authSlice = createSlice({

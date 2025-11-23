@@ -18,9 +18,7 @@ from .models import WeightEntry
 from .serializers import WeightEntrySerializer
 
 
-# ============================================
 #                 USER AUTH
-# ============================================
 
 @api_view(["POST"])
 @permission_classes([AllowAny])
@@ -65,9 +63,7 @@ def logout(request):
 
 
 
-# ============================================
 #           WEIGHT TRACKING CORE
-# ============================================
 
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
@@ -99,9 +95,7 @@ def list_weight(request):
 
 
 
-# ============================================
 #                CRUD OPERATIONS
-# ============================================
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
@@ -145,18 +139,7 @@ def delete_weight(request, pk):
 
 
 
-# ============================================
 #       WEIGHT LOSS BETWEEN TWO DATES API
-# ============================================
-
-
-
-# from rest_framework.decorators import api_view, permission_classes
-# from rest_framework.permissions import IsAuthenticated
-# from rest_framework.response import Response
-# from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
-
-# from .models import WeightEntry
 
 
 @api_view(["POST"])

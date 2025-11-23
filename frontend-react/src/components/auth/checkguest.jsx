@@ -9,8 +9,7 @@ const checkguest = (Component) => {
 
     useEffect(() => {
       if (user) {
-        navigate('/home', { replace: true });
-      }
+        navigate('/home', { replace: true });       }
     }, [user, navigate]);
 
     if (user) return null;
